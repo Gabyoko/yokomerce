@@ -1,0 +1,1802 @@
+[
+  {
+    "idPrefix": "da",
+    "ownerName": "Ana Torres",
+    "store": {
+      "slug": "dulcesdeana",
+      "name": "Dulces de Ana",
+      "description": "Tortas y postres caseros hechos por encargo en Surco.",
+      "logoUrl": null,
+      "coverUrl": null,
+      "city": "Santiago de Surco",
+      "whatsapp": "51912345678",
+      "businessHours": {
+        "mon": {
+          "open": "09:00",
+          "close": "20:00"
+        },
+        "tue": {
+          "open": "09:00",
+          "close": "20:00"
+        },
+        "wed": {
+          "open": "09:00",
+          "close": "20:00"
+        },
+        "thu": {
+          "open": "09:00",
+          "close": "20:00"
+        },
+        "fri": {
+          "open": "09:00",
+          "close": "20:00"
+        },
+        "sat": {
+          "open": "09:00",
+          "close": "20:00"
+        },
+        "sun": {
+          "open": "10:00",
+          "close": "14:00"
+        }
+      },
+      "paymentMethods": [
+        "yape",
+        "plin",
+        "cash"
+      ],
+      "paymentInstructions": "Yape o Plin al 912 345 678 a nombre de Ana Torres. Envía la captura por WhatsApp.",
+      "features": {
+        "deliveryDate": true,
+        "leadTimeDays": 1,
+        "madeToOrder": true,
+        "sizeGuide": false,
+        "deliveryZones": true,
+        "pickup": true,
+        "shipping": false
+      },
+      "pickupAddress": "Jr. Las Gardenias 245, Santiago de Surco",
+      "shippingFeeCents": null,
+      "reservationHours": 24,
+      "plan": "free",
+      "planExpiresInDays": null
+    },
+    "zones": [
+      {
+        "name": "Santiago de Surco",
+        "priceCents": 800
+      },
+      {
+        "name": "Miraflores",
+        "priceCents": 1000
+      },
+      {
+        "name": "Barranco",
+        "priceCents": 1000
+      }
+    ],
+    "categories": [
+      "Tortas",
+      "Postres",
+      "Alfajores",
+      "Kekes"
+    ],
+    "products": [
+      {
+        "key": "torta-chocolate",
+        "category": "Tortas",
+        "name": "Torta de chocolate",
+        "description": "Bizcocho húmedo de chocolate con fudge casero y cobertura de ganache.",
+        "options": [
+          {
+            "name": "Tamaño",
+            "values": [
+              "Mediana",
+              "Grande"
+            ]
+          }
+        ],
+        "customFields": [
+          {
+            "label": "Dedicatoria",
+            "required": false,
+            "maxLength": 30
+          }
+        ],
+        "variants": [
+          {
+            "values": [
+              "Mediana"
+            ],
+            "priceCents": 4500,
+            "available": 4,
+            "lowStockThreshold": 2
+          },
+          {
+            "values": [
+              "Grande"
+            ],
+            "priceCents": 7000,
+            "available": 1,
+            "lowStockThreshold": 2
+          }
+        ]
+      },
+      {
+        "key": "cheesecake-maracuya",
+        "category": "Postres",
+        "name": "Cheesecake de maracuyá",
+        "description": "Base de galleta, crema de queso y salsa de maracuyá. 8 porciones.",
+        "variants": [
+          {
+            "values": [],
+            "priceCents": 5500,
+            "available": 2,
+            "lowStockThreshold": 3
+          }
+        ]
+      },
+      {
+        "key": "alfajores-x12",
+        "category": "Alfajores",
+        "name": "Alfajores x12",
+        "description": "Alfajores de maicena rellenos de manjar blanco.",
+        "variants": [
+          {
+            "values": [],
+            "priceCents": 1800,
+            "available": 15,
+            "lowStockThreshold": 5
+          }
+        ]
+      },
+      {
+        "key": "keke-naranja",
+        "category": "Kekes",
+        "name": "Keke de naranja",
+        "description": "Keke esponjoso con jugo y ralladura de naranja.",
+        "variants": [
+          {
+            "values": [],
+            "priceCents": 2500,
+            "available": 0,
+            "lowStockThreshold": 2
+          }
+        ]
+      },
+      {
+        "key": "torta-tres-leches",
+        "category": "Tortas",
+        "name": "Torta tres leches",
+        "description": "Bizcocho bañado en tres leches con merengue italiano. Se prepara por encargo.",
+        "madeToOrder": true,
+        "customFields": [
+          {
+            "label": "Dedicatoria",
+            "required": false,
+            "maxLength": 30
+          }
+        ],
+        "variants": [
+          {
+            "values": [],
+            "priceCents": 5000,
+            "available": 0
+          }
+        ]
+      },
+      {
+        "key": "brownies-x6",
+        "category": "Postres",
+        "name": "Brownies x6",
+        "description": "Brownies de chocolate bitter con nueces.",
+        "variants": [
+          {
+            "values": [],
+            "priceCents": 2200,
+            "available": 8,
+            "lowStockThreshold": 3
+          }
+        ]
+      },
+      {
+        "key": "pie-limon",
+        "category": "Postres",
+        "name": "Pie de limón",
+        "description": "Masa sablée, crema de limón y merengue tostado.",
+        "variants": [
+          {
+            "values": [],
+            "priceCents": 4800,
+            "available": 3,
+            "lowStockThreshold": 2
+          }
+        ]
+      }
+    ],
+    "firstOrderNumber": 32,
+    "orders": [
+      {
+        "hoursAgo": 160,
+        "status": "delivered",
+        "customer": {
+          "name": "Paola Gutiérrez",
+          "phone": "934 221 908"
+        },
+        "fulfillment": {
+          "type": "delivery",
+          "zone": "Santiago de Surco",
+          "address": "Av. Caminos del Inca 1520",
+          "reference": "Casa blanca de rejas negras"
+        },
+        "deliverAfterHours": 30,
+        "paymentMethod": "yape",
+        "items": [
+          {
+            "product": "torta-chocolate",
+            "variant": [
+              "Mediana"
+            ],
+            "quantity": 1,
+            "customValues": {
+              "Dedicatoria": "Feliz aniversario"
+            }
+          },
+          {
+            "product": "alfajores-x12",
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "hoursAgo": 150,
+        "status": "cancelled",
+        "cancelledFrom": "new",
+        "customer": {
+          "name": "Renato Salas",
+          "phone": "945 870 113"
+        },
+        "fulfillment": {
+          "type": "pickup"
+        },
+        "deliverAfterHours": 26,
+        "paymentMethod": "cash",
+        "items": [
+          {
+            "product": "brownies-x6",
+            "quantity": 2
+          }
+        ],
+        "notes": "Canceló porque ya no iba a estar en Lima."
+      },
+      {
+        "hoursAgo": 130,
+        "status": "delivered",
+        "customer": {
+          "name": "Fiorella Campos",
+          "phone": "998 405 732"
+        },
+        "fulfillment": {
+          "type": "delivery",
+          "zone": "Miraflores",
+          "address": "Calle Berlín 360, dpto. 5",
+          "reference": "Cerca al parque Kennedy"
+        },
+        "deliverAfterHours": 28,
+        "paymentMethod": "plin",
+        "items": [
+          {
+            "product": "cheesecake-maracuya",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "hoursAgo": 110,
+        "status": "expired",
+        "customer": {
+          "name": "Martín Rojas",
+          "phone": "961 334 590"
+        },
+        "fulfillment": {
+          "type": "delivery",
+          "zone": "Barranco",
+          "address": "Av. Grau 455",
+          "reference": "Edificio verde"
+        },
+        "deliverAfterHours": 48,
+        "paymentMethod": "yape",
+        "items": [
+          {
+            "product": "torta-chocolate",
+            "variant": [
+              "Grande"
+            ],
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "hoursAgo": 100,
+        "status": "delivered",
+        "customer": {
+          "name": "Gabriela Núñez",
+          "phone": "987 120 456"
+        },
+        "fulfillment": {
+          "type": "pickup"
+        },
+        "deliverAfterHours": 48,
+        "paymentMethod": "cash",
+        "items": [
+          {
+            "product": "torta-tres-leches",
+            "quantity": 1,
+            "customValues": {
+              "Dedicatoria": "Felicidades, Mamá"
+            }
+          }
+        ]
+      },
+      {
+        "hoursAgo": 90,
+        "status": "delivered",
+        "customer": {
+          "name": "Diego Torres",
+          "phone": "913 778 450"
+        },
+        "fulfillment": {
+          "type": "delivery",
+          "zone": "Santiago de Surco",
+          "address": "Jr. Monte Rosa 233",
+          "reference": "Frente a la bodega"
+        },
+        "deliverAfterHours": 26,
+        "paymentMethod": "yape",
+        "items": [
+          {
+            "product": "torta-chocolate",
+            "variant": [
+              "Mediana"
+            ],
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "hoursAgo": 30,
+        "status": "delivered",
+        "customer": {
+          "name": "Rosa Quispe",
+          "phone": "987 004 239"
+        },
+        "fulfillment": {
+          "type": "pickup"
+        },
+        "deliverAfterHours": 26,
+        "paymentMethod": "plin",
+        "items": [
+          {
+            "product": "alfajores-x12",
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "hoursAgo": 26,
+        "status": "preparing",
+        "customer": {
+          "name": "Carlos Medina",
+          "phone": "999 301 562"
+        },
+        "fulfillment": {
+          "type": "delivery",
+          "zone": "Barranco",
+          "address": "Jr. Junín 120",
+          "reference": "Al costado de la iglesia"
+        },
+        "deliverAfterHours": 30,
+        "paymentMethod": "yape",
+        "items": [
+          {
+            "product": "torta-chocolate",
+            "variant": [
+              "Mediana"
+            ],
+            "quantity": 1,
+            "customValues": {
+              "Dedicatoria": "Feliz cumple, Sofi"
+            }
+          },
+          {
+            "product": "brownies-x6",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "hoursAgo": 9,
+        "status": "paid",
+        "paidAfterMinutes": 45,
+        "customer": {
+          "name": "Lucía Ramos",
+          "phone": "944 520 117"
+        },
+        "fulfillment": {
+          "type": "delivery",
+          "zone": "Miraflores",
+          "address": "Av. Pardo 610, dpto. 1203"
+        },
+        "deliverAfterHours": 30,
+        "paymentMethod": "cash",
+        "items": [
+          {
+            "product": "pie-limon",
+            "quantity": 1
+          }
+        ],
+        "notes": "Pagará con billete de 100."
+      },
+      {
+        "hoursAgo": 5,
+        "status": "new",
+        "customer": {
+          "name": "Jorge Paredes",
+          "phone": "956 112 840"
+        },
+        "fulfillment": {
+          "type": "pickup"
+        },
+        "deliverAfterHours": 28,
+        "paymentMethod": "plin",
+        "items": [
+          {
+            "product": "torta-chocolate",
+            "variant": [
+              "Mediana"
+            ],
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "hoursAgo": 0.2,
+        "status": "new",
+        "customer": {
+          "name": "María López",
+          "phone": "987 654 321"
+        },
+        "fulfillment": {
+          "type": "delivery",
+          "zone": "Santiago de Surco",
+          "address": "Av. Primavera 123, dpto. 402",
+          "reference": "Frente al parque"
+        },
+        "deliverAfterHours": 48,
+        "paymentMethod": "yape",
+        "items": [
+          {
+            "product": "torta-chocolate",
+            "variant": [
+              "Mediana"
+            ],
+            "quantity": 2,
+            "customValues": {
+              "Dedicatoria": "Feliz cumpleaños, Lucía"
+            }
+          },
+          {
+            "product": "alfajores-x12",
+            "quantity": 1
+          }
+        ]
+      }
+    ],
+    "adjustments": [
+      {
+        "product": "alfajores-x12",
+        "type": "out",
+        "quantity": 2,
+        "reason": "merma",
+        "hoursAgo": 50
+      },
+      {
+        "product": "keke-naranja",
+        "type": "out",
+        "quantity": 1,
+        "reason": "regalo",
+        "hoursAgo": 20
+      }
+    ]
+  },
+  {
+    "idPrefix": "tn",
+    "ownerName": "Kevin Huamán",
+    "store": {
+      "slug": "tallernorte",
+      "name": "Taller Norte",
+      "description": "Ropa urbana hecha en Lima. Envíos a todo el Perú.",
+      "logoUrl": null,
+      "coverUrl": null,
+      "city": "Los Olivos",
+      "whatsapp": "51923456789",
+      "businessHours": {
+        "mon": {
+          "open": "10:00",
+          "close": "19:00"
+        },
+        "tue": {
+          "open": "10:00",
+          "close": "19:00"
+        },
+        "wed": {
+          "open": "10:00",
+          "close": "19:00"
+        },
+        "thu": {
+          "open": "10:00",
+          "close": "19:00"
+        },
+        "fri": {
+          "open": "10:00",
+          "close": "19:00"
+        },
+        "sat": {
+          "open": "10:00",
+          "close": "16:00"
+        },
+        "sun": null
+      },
+      "paymentMethods": [
+        "yape",
+        "plin",
+        "transfer"
+      ],
+      "paymentInstructions": "Yape o Plin al 923 456 789. Transferencia BCP: cuenta 191-12345678-0-12 a nombre de Kevin Huamán.",
+      "features": {
+        "deliveryDate": false,
+        "leadTimeDays": 0,
+        "madeToOrder": false,
+        "sizeGuide": true,
+        "deliveryZones": true,
+        "pickup": false,
+        "shipping": true
+      },
+      "pickupAddress": null,
+      "shippingFeeCents": 1500,
+      "reservationHours": 48,
+      "plan": "pro",
+      "planExpiresInDays": 60
+    },
+    "zones": [
+      {
+        "name": "Los Olivos",
+        "priceCents": 800
+      },
+      {
+        "name": "San Martín de Porres",
+        "priceCents": 1000
+      },
+      {
+        "name": "Comas",
+        "priceCents": 1000
+      },
+      {
+        "name": "Independencia",
+        "priceCents": 800,
+        "active": false
+      }
+    ],
+    "categories": [
+      "Polos",
+      "Casacas y polerones",
+      "Pantalones",
+      "Accesorios"
+    ],
+    "products": [
+      {
+        "key": "polo-oversize",
+        "category": "Polos",
+        "name": "Polo oversize",
+        "description": "Polo de algodón pima 30/1, corte amplio y cuello reforzado.",
+        "sizeGuideUrl": "/mock/guia-de-tallas.svg",
+        "options": [
+          {
+            "name": "Color",
+            "values": [
+              "Negro",
+              "Blanco",
+              "Verde oliva"
+            ]
+          },
+          {
+            "name": "Talla",
+            "values": [
+              "S",
+              "M",
+              "L",
+              "XL"
+            ]
+          }
+        ],
+        "variants": [
+          {
+            "values": [
+              "Negro",
+              "S"
+            ],
+            "priceCents": 4500,
+            "available": 6,
+            "lowStockThreshold": 2
+          },
+          {
+            "values": [
+              "Negro",
+              "M"
+            ],
+            "priceCents": 4500,
+            "available": 0,
+            "lowStockThreshold": 2
+          },
+          {
+            "values": [
+              "Negro",
+              "L"
+            ],
+            "priceCents": 4500,
+            "available": 2,
+            "lowStockThreshold": 2
+          },
+          {
+            "values": [
+              "Negro",
+              "XL"
+            ],
+            "priceCents": 4500,
+            "available": 6,
+            "lowStockThreshold": 2
+          },
+          {
+            "values": [
+              "Blanco",
+              "S"
+            ],
+            "priceCents": 4500,
+            "available": 6,
+            "lowStockThreshold": 2
+          },
+          {
+            "values": [
+              "Blanco",
+              "M"
+            ],
+            "priceCents": 4500,
+            "available": 6,
+            "lowStockThreshold": 2
+          },
+          {
+            "values": [
+              "Blanco",
+              "L"
+            ],
+            "priceCents": 4500,
+            "available": 6,
+            "lowStockThreshold": 2
+          },
+          {
+            "values": [
+              "Blanco",
+              "XL"
+            ],
+            "priceCents": 4500,
+            "available": 0,
+            "lowStockThreshold": 2
+          },
+          {
+            "values": [
+              "Verde oliva",
+              "S"
+            ],
+            "priceCents": 4500,
+            "available": 0,
+            "lowStockThreshold": 2
+          },
+          {
+            "values": [
+              "Verde oliva",
+              "M"
+            ],
+            "priceCents": 4500,
+            "available": 6,
+            "lowStockThreshold": 2
+          },
+          {
+            "values": [
+              "Verde oliva",
+              "L"
+            ],
+            "priceCents": 4500,
+            "available": 6,
+            "lowStockThreshold": 2
+          },
+          {
+            "values": [
+              "Verde oliva",
+              "XL"
+            ],
+            "priceCents": 4500,
+            "available": 1,
+            "lowStockThreshold": 2
+          }
+        ]
+      },
+      {
+        "key": "casaca-denim",
+        "category": "Casacas y polerones",
+        "name": "Casaca denim",
+        "description": "Casaca de jean grueso con forro de franela.",
+        "sizeGuideUrl": "/mock/guia-de-tallas.svg",
+        "options": [
+          {
+            "name": "Talla",
+            "values": [
+              "S",
+              "M",
+              "L",
+              "XL"
+            ]
+          }
+        ],
+        "variants": [
+          {
+            "values": [
+              "S"
+            ],
+            "priceCents": 12900,
+            "available": 3,
+            "lowStockThreshold": 1
+          },
+          {
+            "values": [
+              "M"
+            ],
+            "priceCents": 12900,
+            "available": 5,
+            "lowStockThreshold": 1
+          },
+          {
+            "values": [
+              "L"
+            ],
+            "priceCents": 12900,
+            "available": 4,
+            "lowStockThreshold": 1
+          },
+          {
+            "values": [
+              "XL"
+            ],
+            "priceCents": 13900,
+            "available": 2,
+            "lowStockThreshold": 1
+          }
+        ]
+      },
+      {
+        "key": "jogger",
+        "category": "Pantalones",
+        "name": "Jogger",
+        "description": "Jogger de french terry con bolsillos laterales y puño en la basta.",
+        "sizeGuideUrl": "/mock/guia-de-tallas.svg",
+        "options": [
+          {
+            "name": "Color",
+            "values": [
+              "Negro",
+              "Gris"
+            ]
+          },
+          {
+            "name": "Talla",
+            "values": [
+              "S",
+              "M",
+              "L"
+            ]
+          }
+        ],
+        "variants": [
+          {
+            "values": [
+              "Negro",
+              "S"
+            ],
+            "priceCents": 6900,
+            "available": 5,
+            "lowStockThreshold": 2
+          },
+          {
+            "values": [
+              "Negro",
+              "M"
+            ],
+            "priceCents": 6900,
+            "available": 5,
+            "lowStockThreshold": 2
+          },
+          {
+            "values": [
+              "Negro",
+              "L"
+            ],
+            "priceCents": 6900,
+            "available": 5,
+            "lowStockThreshold": 2
+          },
+          {
+            "values": [
+              "Gris",
+              "S"
+            ],
+            "priceCents": 6900,
+            "available": 5,
+            "lowStockThreshold": 2
+          },
+          {
+            "values": [
+              "Gris",
+              "M"
+            ],
+            "priceCents": 6900,
+            "available": 5,
+            "lowStockThreshold": 2
+          },
+          {
+            "values": [
+              "Gris",
+              "L"
+            ],
+            "priceCents": 6900,
+            "available": 0,
+            "lowStockThreshold": 2,
+            "active": false
+          }
+        ]
+      },
+      {
+        "key": "hoodie",
+        "category": "Casacas y polerones",
+        "name": "Polerón con capucha",
+        "description": "Polerón de felpa con capucha y bolsillo canguro.",
+        "sizeGuideUrl": "/mock/guia-de-tallas.svg",
+        "options": [
+          {
+            "name": "Talla",
+            "values": [
+              "M",
+              "L",
+              "XL"
+            ]
+          }
+        ],
+        "variants": [
+          {
+            "values": [
+              "M"
+            ],
+            "priceCents": 8900,
+            "available": 6,
+            "lowStockThreshold": 2
+          },
+          {
+            "values": [
+              "L"
+            ],
+            "priceCents": 8900,
+            "available": 4,
+            "lowStockThreshold": 2
+          },
+          {
+            "values": [
+              "XL"
+            ],
+            "priceCents": 8900,
+            "available": 2,
+            "lowStockThreshold": 2
+          }
+        ]
+      },
+      {
+        "key": "gorra",
+        "category": "Accesorios",
+        "name": "Gorra bordada",
+        "description": "Gorra de drill con logo bordado y correa regulable. Talla única.",
+        "variants": [
+          {
+            "values": [],
+            "priceCents": 3500,
+            "available": 10,
+            "lowStockThreshold": 3
+          }
+        ]
+      },
+      {
+        "key": "short-cargo",
+        "category": "Pantalones",
+        "name": "Short cargo",
+        "description": "Short de drill con bolsillos cargo. Temporada de verano.",
+        "sizeGuideUrl": "/mock/guia-de-tallas.svg",
+        "visible": false,
+        "options": [
+          {
+            "name": "Talla",
+            "values": [
+              "28",
+              "30",
+              "32",
+              "34"
+            ]
+          }
+        ],
+        "variants": [
+          {
+            "values": [
+              "28"
+            ],
+            "priceCents": 5500,
+            "available": 4
+          },
+          {
+            "values": [
+              "30"
+            ],
+            "priceCents": 5500,
+            "available": 4
+          },
+          {
+            "values": [
+              "32"
+            ],
+            "priceCents": 5500,
+            "available": 4
+          },
+          {
+            "values": [
+              "34"
+            ],
+            "priceCents": 5500,
+            "available": 4
+          }
+        ]
+      }
+    ],
+    "firstOrderNumber": 15,
+    "orders": [
+      {
+        "hoursAgo": 165,
+        "status": "delivered",
+        "customer": {
+          "name": "Andrea Villanueva",
+          "phone": "952 118 774"
+        },
+        "fulfillment": {
+          "type": "shipping",
+          "city": "Arequipa",
+          "address": "Calle Mercaderes 410",
+          "reference": "Agencia Shalom de Av. Ejército"
+        },
+        "deliverAfterHours": 72,
+        "paymentMethod": "transfer",
+        "items": [
+          {
+            "product": "polo-oversize",
+            "variant": [
+              "Negro",
+              "M"
+            ],
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "hoursAgo": 140,
+        "status": "delivered",
+        "customer": {
+          "name": "Luis Chávez",
+          "phone": "981 445 220"
+        },
+        "fulfillment": {
+          "type": "delivery",
+          "zone": "Los Olivos",
+          "address": "Av. Antúnez de Mayolo 880",
+          "reference": "Cerca al Mega Plaza"
+        },
+        "deliverAfterHours": 24,
+        "paymentMethod": "yape",
+        "items": [
+          {
+            "product": "polo-oversize",
+            "variant": [
+              "Blanco",
+              "L"
+            ],
+            "quantity": 1
+          },
+          {
+            "product": "gorra",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "hoursAgo": 120,
+        "status": "cancelled",
+        "cancelledFrom": "paid",
+        "paidAfterMinutes": 20,
+        "customer": {
+          "name": "Jesús Ramírez",
+          "phone": "937 602 315"
+        },
+        "fulfillment": {
+          "type": "delivery",
+          "zone": "San Martín de Porres",
+          "address": "Jr. Los Cedros 155"
+        },
+        "paymentMethod": "plin",
+        "items": [
+          {
+            "product": "casaca-denim",
+            "variant": [
+              "M"
+            ],
+            "quantity": 1
+          }
+        ],
+        "notes": "Pidió cambio de talla, se le devolvió el dinero."
+      },
+      {
+        "hoursAgo": 96,
+        "status": "expired",
+        "customer": {
+          "name": "Milagros Ccahuana",
+          "phone": "965 330 841"
+        },
+        "fulfillment": {
+          "type": "delivery",
+          "zone": "Comas",
+          "address": "Av. Túpac Amaru 3450"
+        },
+        "paymentMethod": "yape",
+        "items": [
+          {
+            "product": "jogger",
+            "variant": [
+              "Negro",
+              "M"
+            ],
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "hoursAgo": 72,
+        "status": "delivered",
+        "customer": {
+          "name": "Bruno Castillo",
+          "phone": "974 991 006"
+        },
+        "fulfillment": {
+          "type": "shipping",
+          "city": "Trujillo",
+          "address": "Av. España 1290",
+          "reference": "Agencia Olva"
+        },
+        "deliverAfterHours": 60,
+        "paymentMethod": "transfer",
+        "items": [
+          {
+            "product": "hoodie",
+            "variant": [
+              "L"
+            ],
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "hoursAgo": 30,
+        "status": "preparing",
+        "customer": {
+          "name": "Daniela Flores",
+          "phone": "958 274 113"
+        },
+        "fulfillment": {
+          "type": "shipping",
+          "city": "Piura",
+          "address": "Calle Lima 735",
+          "reference": "Agencia Shalom"
+        },
+        "paymentMethod": "transfer",
+        "items": [
+          {
+            "product": "polo-oversize",
+            "variant": [
+              "Verde oliva",
+              "M"
+            ],
+            "quantity": 3
+          }
+        ]
+      },
+      {
+        "hoursAgo": 20,
+        "status": "paid",
+        "customer": {
+          "name": "Kevin Sánchez",
+          "phone": "926 448 509"
+        },
+        "fulfillment": {
+          "type": "delivery",
+          "zone": "Los Olivos",
+          "address": "Calle Las Turquesas 312"
+        },
+        "paymentMethod": "yape",
+        "items": [
+          {
+            "product": "jogger",
+            "variant": [
+              "Gris",
+              "S"
+            ],
+            "quantity": 1
+          },
+          {
+            "product": "gorra",
+            "quantity": 1
+          }
+        ],
+        "notes": "Dejar en portería si no está."
+      },
+      {
+        "hoursAgo": 6,
+        "status": "new",
+        "customer": {
+          "name": "Alejandra Paz",
+          "phone": "989 663 271"
+        },
+        "fulfillment": {
+          "type": "delivery",
+          "zone": "San Martín de Porres",
+          "address": "Av. Universitaria 5220",
+          "reference": "Frente a la UNI"
+        },
+        "paymentMethod": "plin",
+        "items": [
+          {
+            "product": "casaca-denim",
+            "variant": [
+              "L"
+            ],
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "hoursAgo": 1,
+        "status": "new",
+        "customer": {
+          "name": "Sebastián Mendoza",
+          "phone": "912 057 884"
+        },
+        "fulfillment": {
+          "type": "delivery",
+          "zone": "Los Olivos",
+          "address": "Jr. Río Huallaga 140"
+        },
+        "paymentMethod": "yape",
+        "items": [
+          {
+            "product": "polo-oversize",
+            "variant": [
+              "Negro",
+              "L"
+            ],
+            "quantity": 1
+          }
+        ]
+      }
+    ],
+    "adjustments": [
+      {
+        "product": "polo-oversize",
+        "variant": [
+          "Blanco",
+          "S"
+        ],
+        "type": "out",
+        "quantity": 2,
+        "reason": "feria",
+        "hoursAgo": 100
+      },
+      {
+        "product": "gorra",
+        "type": "in",
+        "quantity": 5,
+        "reason": "produccion",
+        "hoursAgo": 48
+      }
+    ]
+  },
+  {
+    "idPrefix": "fl",
+    "ownerName": "Valeria Quispe",
+    "store": {
+      "slug": "fundalab",
+      "name": "Funda Lab",
+      "description": "Fundas, micas y accesorios para tu celular. Personalizamos con tu nombre.",
+      "logoUrl": null,
+      "coverUrl": null,
+      "city": "Cercado de Lima",
+      "whatsapp": "51934567890",
+      "businessHours": {
+        "mon": {
+          "open": "10:00",
+          "close": "20:00"
+        },
+        "tue": {
+          "open": "10:00",
+          "close": "20:00"
+        },
+        "wed": {
+          "open": "10:00",
+          "close": "20:00"
+        },
+        "thu": {
+          "open": "10:00",
+          "close": "20:00"
+        },
+        "fri": {
+          "open": "10:00",
+          "close": "20:00"
+        },
+        "sat": {
+          "open": "10:00",
+          "close": "20:00"
+        },
+        "sun": {
+          "open": "11:00",
+          "close": "17:00"
+        }
+      },
+      "paymentMethods": [
+        "yape",
+        "transfer"
+      ],
+      "paymentInstructions": "Yape al 934 567 890. Transferencia Interbank: cuenta 200-3001234567 a nombre de Valeria Quispe.",
+      "features": {
+        "deliveryDate": false,
+        "leadTimeDays": 0,
+        "madeToOrder": false,
+        "sizeGuide": false,
+        "deliveryZones": false,
+        "pickup": true,
+        "shipping": true
+      },
+      "pickupAddress": "Av. Garcilaso de la Vega 1348, tienda 215, Cercado de Lima",
+      "shippingFeeCents": null,
+      "reservationHours": 24,
+      "plan": "free",
+      "planExpiresInDays": null
+    },
+    "zones": [],
+    "categories": [
+      "Fundas",
+      "Micas",
+      "Cargadores y cables",
+      "Accesorios"
+    ],
+    "products": [
+      {
+        "key": "funda-transparente",
+        "category": "Fundas",
+        "name": "Funda transparente",
+        "description": "Funda de silicona transparente antigolpes con esquinas reforzadas.",
+        "options": [
+          {
+            "name": "Modelo de celular",
+            "values": [
+              "iPhone 15",
+              "iPhone 14",
+              "Samsung A54",
+              "Redmi Note 13"
+            ]
+          }
+        ],
+        "variants": [
+          {
+            "values": [
+              "iPhone 15"
+            ],
+            "priceCents": 2500,
+            "available": 8,
+            "lowStockThreshold": 2
+          },
+          {
+            "values": [
+              "iPhone 14"
+            ],
+            "priceCents": 2500,
+            "available": 5,
+            "lowStockThreshold": 2
+          },
+          {
+            "values": [
+              "Samsung A54"
+            ],
+            "priceCents": 2500,
+            "available": 6,
+            "lowStockThreshold": 2
+          },
+          {
+            "values": [
+              "Redmi Note 13"
+            ],
+            "priceCents": 2500,
+            "available": 0,
+            "lowStockThreshold": 2
+          }
+        ]
+      },
+      {
+        "key": "funda-personalizada",
+        "category": "Fundas",
+        "name": "Funda personalizada",
+        "description": "Funda de policarbonato con tu nombre impreso. Lista en 24 horas.",
+        "options": [
+          {
+            "name": "Modelo de celular",
+            "values": [
+              "iPhone 15",
+              "Samsung A54",
+              "Redmi Note 13"
+            ]
+          },
+          {
+            "name": "Color",
+            "values": [
+              "Negro",
+              "Rosado"
+            ]
+          }
+        ],
+        "customFields": [
+          {
+            "label": "Nombre para personalizar",
+            "required": true,
+            "maxLength": 20
+          }
+        ],
+        "variants": [
+          {
+            "values": [
+              "iPhone 15",
+              "Negro"
+            ],
+            "priceCents": 3900,
+            "available": 4,
+            "lowStockThreshold": 1
+          },
+          {
+            "values": [
+              "iPhone 15",
+              "Rosado"
+            ],
+            "priceCents": 3900,
+            "available": 4,
+            "lowStockThreshold": 1
+          },
+          {
+            "values": [
+              "Samsung A54",
+              "Negro"
+            ],
+            "priceCents": 3900,
+            "available": 4,
+            "lowStockThreshold": 1
+          },
+          {
+            "values": [
+              "Samsung A54",
+              "Rosado"
+            ],
+            "priceCents": 3900,
+            "available": 4,
+            "lowStockThreshold": 1
+          },
+          {
+            "values": [
+              "Redmi Note 13",
+              "Negro"
+            ],
+            "priceCents": 3900,
+            "available": 4,
+            "lowStockThreshold": 1
+          },
+          {
+            "values": [
+              "Redmi Note 13",
+              "Rosado"
+            ],
+            "priceCents": 3900,
+            "available": 1,
+            "lowStockThreshold": 1
+          }
+        ]
+      },
+      {
+        "key": "cargador-rapido",
+        "category": "Cargadores y cables",
+        "name": "Cargador rápido 20 W",
+        "description": "Cargador USB-C de 20 W compatible con iPhone y Android.",
+        "variants": [
+          {
+            "values": [],
+            "priceCents": 4900,
+            "available": 7,
+            "lowStockThreshold": 3
+          }
+        ]
+      },
+      {
+        "key": "mica-vidrio",
+        "category": "Micas",
+        "name": "Mica de vidrio templado",
+        "description": "Mica 9H que cubre toda la pantalla. Incluye kit de instalación.",
+        "options": [
+          {
+            "name": "Modelo de celular",
+            "values": [
+              "iPhone 15",
+              "iPhone 14",
+              "Samsung A54"
+            ]
+          }
+        ],
+        "variants": [
+          {
+            "values": [
+              "iPhone 15"
+            ],
+            "priceCents": 1500,
+            "available": 20,
+            "lowStockThreshold": 5
+          },
+          {
+            "values": [
+              "iPhone 14"
+            ],
+            "priceCents": 1500,
+            "available": 15,
+            "lowStockThreshold": 5
+          },
+          {
+            "values": [
+              "Samsung A54"
+            ],
+            "priceCents": 1500,
+            "available": 2,
+            "lowStockThreshold": 5
+          }
+        ]
+      },
+      {
+        "key": "cable-usbc",
+        "category": "Cargadores y cables",
+        "name": "Cable USB-C trenzado",
+        "description": "Cable trenzado resistente de carga rápida.",
+        "options": [
+          {
+            "name": "Largo",
+            "values": [
+              "1 m",
+              "2 m"
+            ]
+          }
+        ],
+        "variants": [
+          {
+            "values": [
+              "1 m"
+            ],
+            "priceCents": 1900,
+            "available": 12,
+            "lowStockThreshold": 3
+          },
+          {
+            "values": [
+              "2 m"
+            ],
+            "priceCents": 2400,
+            "available": 6,
+            "lowStockThreshold": 3
+          }
+        ]
+      },
+      {
+        "key": "popsocket",
+        "category": "Accesorios",
+        "name": "Soporte para celular",
+        "description": "Soporte adhesivo plegable que también sirve de parante.",
+        "options": [
+          {
+            "name": "Color",
+            "values": [
+              "Negro",
+              "Lila",
+              "Celeste"
+            ]
+          }
+        ],
+        "variants": [
+          {
+            "values": [
+              "Negro"
+            ],
+            "priceCents": 1200,
+            "available": 9,
+            "lowStockThreshold": 2
+          },
+          {
+            "values": [
+              "Lila"
+            ],
+            "priceCents": 1200,
+            "available": 4,
+            "lowStockThreshold": 2
+          },
+          {
+            "values": [
+              "Celeste"
+            ],
+            "priceCents": 1200,
+            "available": 0,
+            "lowStockThreshold": 2
+          }
+        ]
+      },
+      {
+        "key": "audifonos",
+        "category": "Accesorios",
+        "name": "Audífonos inalámbricos",
+        "description": "Audífonos bluetooth con estuche de carga. Hasta 20 horas de batería.",
+        "variants": [
+          {
+            "values": [],
+            "priceCents": 8900,
+            "available": 3,
+            "lowStockThreshold": 2
+          }
+        ]
+      }
+    ],
+    "firstOrderNumber": 1,
+    "orders": [
+      {
+        "hoursAgo": 160,
+        "status": "delivered",
+        "customer": {
+          "name": "Óscar Huerta",
+          "phone": "947 552 018"
+        },
+        "fulfillment": {
+          "type": "pickup"
+        },
+        "deliverAfterHours": 4,
+        "paymentMethod": "yape",
+        "items": [
+          {
+            "product": "cargador-rapido",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "hoursAgo": 140,
+        "status": "delivered",
+        "customer": {
+          "name": "Camila Torres",
+          "phone": "971 830 245"
+        },
+        "fulfillment": {
+          "type": "shipping",
+          "city": "Cusco",
+          "address": "Av. de la Cultura 1020",
+          "reference": "Agencia Shalom"
+        },
+        "deliverAfterHours": 72,
+        "paymentMethod": "transfer",
+        "items": [
+          {
+            "product": "funda-personalizada",
+            "variant": [
+              "iPhone 15",
+              "Negro"
+            ],
+            "quantity": 1,
+            "customValues": {
+              "Nombre para personalizar": "Camila"
+            }
+          },
+          {
+            "product": "mica-vidrio",
+            "variant": [
+              "iPhone 15"
+            ],
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "hoursAgo": 120,
+        "status": "expired",
+        "customer": {
+          "name": "Piero Lozano",
+          "phone": "985 210 367"
+        },
+        "fulfillment": {
+          "type": "pickup"
+        },
+        "paymentMethod": "yape",
+        "items": [
+          {
+            "product": "audifonos",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "hoursAgo": 100,
+        "status": "cancelled",
+        "cancelledFrom": "new",
+        "customer": {
+          "name": "Rocío Vargas",
+          "phone": "916 774 302"
+        },
+        "fulfillment": {
+          "type": "shipping",
+          "city": "Chiclayo",
+          "address": "Calle Elías Aguirre 560"
+        },
+        "paymentMethod": "transfer",
+        "items": [
+          {
+            "product": "popsocket",
+            "variant": [
+              "Lila"
+            ],
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "hoursAgo": 70,
+        "status": "delivered",
+        "customer": {
+          "name": "Héctor Palomino",
+          "phone": "990 128 664"
+        },
+        "fulfillment": {
+          "type": "pickup"
+        },
+        "deliverAfterHours": 3,
+        "paymentMethod": "yape",
+        "items": [
+          {
+            "product": "funda-transparente",
+            "variant": [
+              "iPhone 14"
+            ],
+            "quantity": 1
+          },
+          {
+            "product": "cable-usbc",
+            "variant": [
+              "1 m"
+            ],
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "hoursAgo": 28,
+        "status": "preparing",
+        "customer": {
+          "name": "Sofía Ríos",
+          "phone": "938 446 125"
+        },
+        "fulfillment": {
+          "type": "shipping",
+          "city": "Huancayo",
+          "address": "Jr. Real 845",
+          "reference": "Agencia Marvisur"
+        },
+        "paymentMethod": "transfer",
+        "items": [
+          {
+            "product": "funda-personalizada",
+            "variant": [
+              "Samsung A54",
+              "Rosado"
+            ],
+            "quantity": 2,
+            "customValues": {
+              "Nombre para personalizar": "Sofía"
+            }
+          }
+        ],
+        "notes": "Coordinar costo del envío antes de despachar."
+      },
+      {
+        "hoursAgo": 10,
+        "status": "paid",
+        "customer": {
+          "name": "Manuel Aguilar",
+          "phone": "964 803 571"
+        },
+        "fulfillment": {
+          "type": "pickup"
+        },
+        "paymentMethod": "yape",
+        "items": [
+          {
+            "product": "mica-vidrio",
+            "variant": [
+              "Samsung A54"
+            ],
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "hoursAgo": 2,
+        "status": "new",
+        "customer": {
+          "name": "Natalia Benites",
+          "phone": "923 905 418"
+        },
+        "fulfillment": {
+          "type": "shipping",
+          "city": "Arequipa",
+          "address": "Av. Ejército 708",
+          "reference": "Agencia Olva"
+        },
+        "paymentMethod": "transfer",
+        "items": [
+          {
+            "product": "funda-transparente",
+            "variant": [
+              "iPhone 15"
+            ],
+            "quantity": 1
+          },
+          {
+            "product": "cargador-rapido",
+            "quantity": 1
+          }
+        ]
+      }
+    ],
+    "adjustments": [
+      {
+        "product": "popsocket",
+        "variant": [
+          "Celeste"
+        ],
+        "type": "out",
+        "quantity": 1,
+        "reason": "merma",
+        "hoursAgo": 40
+      }
+    ]
+  }
+]

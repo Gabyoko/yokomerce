@@ -1,0 +1,22 @@
+# PostgreSQL para desarrollo. Uso: docker compose up -d
+# Los datos quedan en el volumen "yokomerce-db" y sobreviven a los reinicios.
+services:
+  db:
+    image: postgres:16
+    container_name: yokomerce-db
+    environment:
+      POSTGRES_USER: yokomerce
+      POSTGRES_PASSWORD: yokomerce
+      POSTGRES_DB: yokomerce
+    ports:
+      - "5432:5432"
+    volumes:
+      - yokomerce-db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U yokomerce"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  yokomerce-db:

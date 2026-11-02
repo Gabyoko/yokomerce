@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+  <title>Foto de prueba</title>
+  <rect width="800" height="800" fill="#FBE7DD"/>
+  <g fill="none" stroke="#9E3A17" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" transform="translate(280 260) scale(10)">
+    <rect x="1" y="2" width="22" height="18" rx="3"/>
+    <circle cx="8" cy="9" r="2.5"/>
+    <path d="M23 15l-6-6L5 20"/>
+  </g>
+  <text x="400" y="560" text-anchor="middle" font-family="system-ui, sans-serif" font-size="36" fill="#9E3A17">Foto de prueba</text>
+</svg>

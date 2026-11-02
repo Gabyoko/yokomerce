@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="320" viewBox="0 0 600 320" font-family="system-ui, sans-serif">
+  <title>Guía de tallas (imagen de prueba)</title>
+  <rect width="600" height="320" rx="16" fill="#FFFFFF" stroke="#EADFD3" stroke-width="2"/>
+  <text x="32" y="52" font-size="24" font-weight="700" fill="#2A211C">Guía de tallas</text>
+  <text x="32" y="80" font-size="14" fill="#6E625A">Medidas de la prenda en centímetros</text>
+  <g font-size="16" fill="#2A211C">
+    <rect x="32" y="104" width="536" height="40" rx="8" fill="#FBE7DD"/>
+    <text x="48" y="130" font-weight="700">Talla</text><text x="200" y="130" font-weight="700">Pecho</text><text x="330" y="130" font-weight="700">Largo</text><text x="460" y="130" font-weight="700">Manga</text>
+    <text x="48" y="174">S</text><text x="200" y="174">52</text><text x="330" y="174">70</text><text x="460" y="174">22</text>
+    <text x="48" y="210">M</text><text x="200" y="210">55</text><text x="330" y="210">72</text><text x="460" y="210">23</text>
+    <text x="48" y="246">L</text><text x="200" y="246">58</text><text x="330" y="246">74</text><text x="460" y="246">24</text>
+    <text x="48" y="282">XL</text><text x="200" y="282">61</text><text x="330" y="282">76</text><text x="460" y="282">25</text>
+  </g>
+</svg>

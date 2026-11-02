@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Ajustar stock</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&amp;family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#C2491F}a:hover{color:#9E3A17}
+button,input{font-family:inherit}
+</style>
+</helmet>
+<div style="width: 390px; height: 980px; position: relative; overflow: hidden; background: #FBF7F2; font-family: 'Figtree', system-ui, sans-serif; color: #2A211C">
+<header style="display: flex; align-items: center; gap: 12px; padding: 16px 20px">
+<a href="Pedidos.dc.html" aria-label="Volver" style="width: 44px; height: 44px; border-radius: 50%; background: #FFFFFF; border: 1px solid #EADFD3; color: #2A211C; display: flex; align-items: center; justify-content: center; box-sizing: border-box"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></a>
+<h1 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 22px; font-weight: 700">Ajustar stock</h1>
+</header>
+<div style="padding: 0 20px 120px; display: flex; flex-direction: column; gap: 18px">
+
+<section style="background: #FFFFFF; border: 1px solid #EADFD3; border-radius: 18px; padding: 14px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; align-items: center; gap: 12px">
+<div style="width: 56px; height: 56px; border-radius: 14px; background: #F3D5C4; flex-shrink: 0"></div>
+<div>
+<h2 style="margin: 0; font-size: 16px; font-weight: 700">Alfajores x12</h2>
+<p style="margin: 2px 0 0; font-size: 13px; color: #6E625A">Alfajores · S/ 18.00</p>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; text-align: center">
+<div style="padding: 10px 6px; border-radius: 12px; background: #FBF7F2"><p style="margin: 0; font-size: 12px; color: #6E625A">En total</p><p style="margin: 2px 0 0; font-size: 20px; font-weight: 700">10</p></div>
+<div style="padding: 10px 6px; border-radius: 12px; background: #FBF7F2"><p style="margin: 0; font-size: 12px; color: #6E625A">Reservado</p><p style="margin: 2px 0 0; font-size: 20px; font-weight: 700">1</p></div>
+<div style="padding: 10px 6px; border-radius: 12px; background: #E2F3E8"><p style="margin: 0; font-size: 12px; color: #17603C">Disponible</p><p style="margin: 2px 0 0; font-size: 20px; font-weight: 700; color: #17603C">9</p></div>
+</div>
+</section>
+
+<div>
+<h2 style="margin: 0 0 10px; font-size: 15px; font-weight: 700">¿Qué pasó?</h2>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+<button type="button" aria-pressed="false" style="min-height: 64px; border-radius: 14px; border: 1px solid #EADFD3; background: #FFFFFF; color: #2A211C; font-size: 14px; font-weight: 700"><span style="display: block; color: #1F7A4D; font-size: 18px">+</span>Entrada</button>
+<button type="button" aria-pressed="true" style="min-height: 64px; border-radius: 14px; border: 2px solid #C2491F; background: #FBE7DD; color: #2A211C; font-size: 14px; font-weight: 700"><span style="display: block; color: #A1281C; font-size: 18px">−</span>Salida</button>
+<button type="button" aria-pressed="false" style="min-height: 64px; border-radius: 14px; border: 1px solid #EADFD3; background: #FFFFFF; color: #2A211C; font-size: 14px; font-weight: 700"><span style="display: block; color: #6E625A; font-size: 18px">=</span>Corregir</button>
+</div>
+</div>
+
+<div style="display: flex; align-items: center; justify-content: center; gap: 18px; padding: 8px 0">
+<button type="button" aria-label="Restar uno" style="width: 56px; height: 56px; border-radius: 50%; border: 1px solid #EADFD3; background: #FFFFFF; color: #2A211C; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14"/></svg></button>
+<div style="text-align: center; min-width: 80px">
+<p style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 48px; font-weight: 700; line-height: 1">3</p>
+<p style="margin: 4px 0 0; font-size: 13px; color: #6E625A">unidades</p>
+</div>
+<button type="button" aria-label="Sumar uno" style="width: 56px; height: 56px; border-radius: 50%; border: 1px solid #EADFD3; background: #FFFFFF; color: #2A211C; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+</div>
+
+<div>
+<h2 style="margin: 0 0 10px; font-size: 15px; font-weight: 700">Motivo</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<button type="button" aria-pressed="true" style="height: 44px; padding: 0 14px; border-radius: 999px; border: 0; background: #2A211C; color: #FFFFFF; font-size: 14px; font-weight: 600">Venta en tienda</button>
+<button type="button" aria-pressed="false" style="height: 44px; padding: 0 14px; border-radius: 999px; border: 1px solid #EADFD3; background: #FFFFFF; color: #2A211C; font-size: 14px; font-weight: 600">Feria</button>
+<button type="button" aria-pressed="false" style="height: 44px; padding: 0 14px; border-radius: 999px; border: 1px solid #EADFD3; background: #FFFFFF; color: #2A211C; font-size: 14px; font-weight: 600">Merma</button>
+<button type="button" aria-pressed="false" style="height: 44px; padding: 0 14px; border-radius: 999px; border: 1px solid #EADFD3; background: #FFFFFF; color: #2A211C; font-size: 14px; font-weight: 600">Regalo</button>
+</div>
+</div>
+
+<div style="display: flex; align-items: center; justify-content: space-between; padding: 14px; border-radius: 16px; background: #FFFFFF; border: 1px solid #EADFD3; font-size: 15px">
+<span style="color: #6E625A">Disponible después</span>
+<span style="font-weight: 700">9 <span style="color: #6E625A">→</span> 6</span>
+</div>
+
+<section style="display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; align-items: baseline">
+<h2 style="margin: 0; font-size: 15px; font-weight: 700">Últimos movimientos</h2>
+<span style="font-size: 13px; color: #6E625A">Aviso si baja de 5</span>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #EADFD3; border-radius: 16px; font-size: 14px">
+<div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 14px; border-bottom: 1px solid #EADFD3"><span><span style="display: block; font-weight: 600">Reserva · pedido #0042</span><span style="font-size: 12px; color: #6E625A">Hoy, 10:28 a. m.</span></span><span style="font-weight: 700; color: #7A4A00">−1</span></div>
+<div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 14px; border-bottom: 1px solid #EADFD3"><span><span style="display: block; font-weight: 600">Entrada · producción del día</span><span style="font-size: 12px; color: #6E625A">Hoy, 8:05 a. m.</span></span><span style="font-weight: 700; color: #17603C">+12</span></div>
+<div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 14px"><span><span style="display: block; font-weight: 600">Venta · pedido #0039</span><span style="font-size: 12px; color: #6E625A">Ayer, 7:40 p. m.</span></span><span style="font-weight: 700; color: #A1281C">−2</span></div>
+</div>
+</section>
+</div>
+<div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 14px 16px 22px; background: #FFFFFF; border-top: 1px solid #EADFD3">
+<button type="button" style="width: 100%; height: 56px; border-radius: 16px; border: 0; background: #C2491F; color: #FFFFFF; font-size: 16px; font-weight: 700">Guardar ajuste</button>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":980}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

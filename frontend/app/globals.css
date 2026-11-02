@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+/*
+ * Tokens de diseño. Este es el único lugar con códigos de color:
+ * en los componentes usa las clases (bg-primary, text-ink-muted, border-border...).
+ */
+@theme {
+  /* Quita la paleta por defecto de Tailwind para usar solo nuestros colores */
+  --color-*: initial;
+  --color-white: #ffffff;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  /* Base */
+  --color-bg: #fbf7f2;
+  --color-surface: #ffffff;
+  --color-border: #eadfd3;
+  --color-border-strong: #cbbfb3;
+
+  /* Texto */
+  --color-ink: #2a211c;
+  --color-ink-muted: #6e625a;
+
+  /* Principal (terracota) */
+  --color-primary: #c2491f;
+  --color-primary-hover: #9e3a17;
+  --color-primary-soft: #fbe7dd;
+
+  /* WhatsApp y acciones de envío */
+  --color-whatsapp: #1f7a4d;
+  --color-whatsapp-soft: #e2f3e8;
+
+  /* Advertencia: stock bajo, nuevo */
+  --color-warning: #7a4a00;
+  --color-warning-soft: #fff0d4;
+
+  /* Error: agotado, cancelar */
+  --color-danger: #a1281c;
+  --color-danger-soft: #fbe5e2;
+
+  /* Fuentes (las variables las define next/font en app/layout.tsx) */
+  --font-sans: var(--font-figtree), system-ui, sans-serif;
+  --font-display: var(--font-bricolage), var(--font-figtree), sans-serif;
+
+  /* Bordes redondeados */
+  --radius-field: 12px; /* inputs, selects, textareas */
+  --radius-control: 14px; /* botones */
+  --radius-card: 18px; /* tarjetas */
+  --radius-sheet: 24px; /* modal y hoja inferior */
+
+  /* Animaciones */
+  --animate-sheet-up: sheet-up 220ms ease-out;
+  --animate-fade-in: fade-in 180ms ease-out;
+  --animate-toast-in: toast-in 200ms ease-out;
+
+  @keyframes sheet-up {
+    from {
+      transform: translateY(100%);
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes toast-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-bg font-sans text-ink antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display font-semibold;
+  }
+
+  dialog::backdrop {
+    background: color-mix(in srgb, var(--color-ink) 45%, transparent);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}

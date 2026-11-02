@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Catálogo de la tienda</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&amp;family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#C2491F}a:hover{color:#9E3A17}
+button,input{font-family:inherit}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; position: relative; overflow: hidden; background: #FBF7F2; font-family: 'Figtree', system-ui, sans-serif; color: #2A211C">
+<div style="height: 112px; background: #EBCDB6"></div>
+<div style="padding: 0 20px; margin-top: -36px; display: flex; flex-direction: column; gap: 12px">
+<div style="width: 72px; height: 72px; border-radius: 20px; background: #C2491F; color: #FFFFFF; border: 4px solid #FBF7F2; display: flex; align-items: center; justify-content: center; font-family: 'Bricolage Grotesque', sans-serif; font-size: 28px; font-weight: 700">DA</div>
+<div>
+<h1 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 26px; font-weight: 700; letter-spacing: -0.01em">Dulces de Ana</h1>
+<p style="margin: 4px 0 0; font-size: 14px; color: #6E625A">Tortas y postres caseros · Surco</p>
+</div>
+<div style="display: flex; gap: 8px; flex-wrap: wrap">
+<span style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 999px; background: #E2F3E8; color: #17603C; font-size: 13px; font-weight: 600"><span style="width: 8px; height: 8px; border-radius: 50%; background: #1F7A4D"></span>Abierto hasta 8 p. m.</span>
+<span style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 999px; background: #FFFFFF; border: 1px solid #EADFD3; color: #2A211C; font-size: 13px; font-weight: 600"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Delivery desde S/ 8</span>
+</div>
+</div>
+<div style="padding: 16px 20px 0">
+<label for="buscar" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap">Buscar productos</label>
+<div style="display: flex; align-items: center; gap: 10px; height: 48px; padding: 0 14px; background: #FFFFFF; border: 1px solid #EADFD3; border-radius: 14px; color: #6E625A">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+<input id="buscar" type="search" placeholder="Buscar tortas, alfajores…" style="border: 0; outline: 0; flex: 1; font-size: 15px; background: transparent; color: #2A211C">
+</div>
+</div>
+<nav aria-label="Categorías" style="display: flex; gap: 8px; padding: 16px 20px 4px; overflow: hidden">
+<button type="button" aria-pressed="true" style="height: 44px; padding: 0 16px; border-radius: 999px; border: 0; background: #2A211C; color: #FFFFFF; font-size: 14px; font-weight: 600; white-space: nowrap">Todo</button>
+<button type="button" aria-pressed="false" style="height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #EADFD3; background: #FFFFFF; color: #2A211C; font-size: 14px; font-weight: 600; white-space: nowrap">Tortas</button>
+<button type="button" aria-pressed="false" style="height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #EADFD3; background: #FFFFFF; color: #2A211C; font-size: 14px; font-weight: 600; white-space: nowrap">Alfajores</button>
+<button type="button" aria-pressed="false" style="height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #EADFD3; background: #FFFFFF; color: #2A211C; font-size: 14px; font-weight: 600; white-space: nowrap">Postres</button>
+<button type="button" aria-pressed="false" style="height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #EADFD3; background: #FFFFFF; color: #2A211C; font-size: 14px; font-weight: 600; white-space: nowrap">Kekes</button>
+</nav>
+<section style="padding: 20px 20px 120px">
+<h2 style="margin: 0 0 12px; font-family: 'Bricolage Grotesque', sans-serif; font-size: 19px; font-weight: 700">Lo más pedido</h2>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+
+<div style="background: #FFFFFF; border: 1px solid #EADFD3; border-radius: 18px; padding: 8px; display: flex; flex-direction: column; gap: 8px">
+<a href="Producto.dc.html" style="text-decoration: none; color: #2A211C; display: flex; flex-direction: column; gap: 8px">
+<div style="aspect-ratio: 1 / 1; border-radius: 12px; background: #E9CDB8; color: #8A6A55; display: flex; align-items: center; justify-content: center">
+<svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></svg>
+</div>
+<div style="padding: 0 4px">
+<div style="font-size: 15px; font-weight: 600; line-height: 1.25">Torta de chocolate</div>
+<div style="font-size: 13px; color: #6E625A; margin-top: 2px">Mediana o grande</div>
+</div>
+</a>
+<div style="display: flex; align-items: center; justify-content: space-between; padding: 0 4px 4px">
+<span style="font-size: 16px; font-weight: 700">S/ 45</span>
+<button type="button" aria-label="Agregar torta de chocolate" style="width: 44px; height: 44px; border-radius: 14px; border: 0; background: #C2491F; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+</div>
+</div>
+
+<div style="background: #FFFFFF; border: 1px solid #EADFD3; border-radius: 18px; padding: 8px; display: flex; flex-direction: column; gap: 8px">
+<a href="Producto.dc.html" style="text-decoration: none; color: #2A211C; display: flex; flex-direction: column; gap: 8px">
+<div style="aspect-ratio: 1 / 1; border-radius: 12px; background: #F6E0B5; color: #8A6A3A; display: flex; align-items: center; justify-content: center; position: relative">
+<svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></svg>
+<span style="position: absolute; top: 8px; left: 8px; padding: 4px 8px; border-radius: 999px; background: #FFF0D4; color: #7A4A00; font-size: 12px; font-weight: 700">Quedan 2</span>
+</div>
+<div style="padding: 0 4px">
+<div style="font-size: 15px; font-weight: 600; line-height: 1.25">Cheesecake de maracuyá</div>
+<div style="font-size: 13px; color: #6E625A; margin-top: 2px">8 porciones</div>
+</div>
+</a>
+<div style="display: flex; align-items: center; justify-content: space-between; padding: 0 4px 4px">
+<span style="font-size: 16px; font-weight: 700">S/ 55</span>
+<button type="button" aria-label="Agregar cheesecake de maracuyá" style="width: 44px; height: 44px; border-radius: 14px; border: 0; background: #C2491F; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+</div>
+</div>
+
+<div style="background: #FFFFFF; border: 1px solid #EADFD3; border-radius: 18px; padding: 8px; display: flex; flex-direction: column; gap: 8px">
+<a href="Producto.dc.html" style="text-decoration: none; color: #2A211C; display: flex; flex-direction: column; gap: 8px">
+<div style="aspect-ratio: 1 / 1; border-radius: 12px; background: #F3D5C4; color: #8A5E48; display: flex; align-items: center; justify-content: center; position: relative">
+<svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></svg>
+<span style="position: absolute; top: 8px; left: 8px; padding: 4px 8px; border-radius: 999px; background: #C2491F; color: #FFFFFF; font-size: 12px; font-weight: 700">En tu carrito</span>
+</div>
+<div style="padding: 0 4px">
+<div style="font-size: 15px; font-weight: 600; line-height: 1.25">Alfajores x12</div>
+<div style="font-size: 13px; color: #6E625A; margin-top: 2px">Con manjar blanco</div>
+</div>
+</a>
+<div style="display: flex; align-items: center; justify-content: space-between; padding: 0 4px 4px">
+<span style="font-size: 16px; font-weight: 700">S/ 18</span>
+<button type="button" aria-label="Agregar alfajores" style="width: 44px; height: 44px; border-radius: 14px; border: 0; background: #C2491F; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+</div>
+</div>
+
+<div style="background: #FFFFFF; border: 1px solid #EADFD3; border-radius: 18px; padding: 8px; display: flex; flex-direction: column; gap: 8px">
+<div style="aspect-ratio: 1 / 1; border-radius: 12px; background: #ECE6DD; color: #8C8278; display: flex; align-items: center; justify-content: center; position: relative">
+<svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></svg>
+<span style="position: absolute; top: 8px; left: 8px; padding: 4px 8px; border-radius: 999px; background: #FBE5E2; color: #A1281C; font-size: 12px; font-weight: 700">Agotado</span>
+</div>
+<div style="padding: 0 4px">
+<div style="font-size: 15px; font-weight: 600; line-height: 1.25; color: #6E625A">Keke de naranja</div>
+<div style="font-size: 13px; color: #6E625A; margin-top: 2px">Vuelve mañana</div>
+</div>
+<div style="display: flex; align-items: center; justify-content: space-between; padding: 0 4px 4px">
+<span style="font-size: 16px; font-weight: 700; color: #6E625A">S/ 25</span>
+<button type="button" style="height: 44px; padding: 0 12px; border-radius: 14px; border: 1px solid #EADFD3; background: #FFFFFF; color: #2A211C; font-size: 13px; font-weight: 600">Avisarme</button>
+</div>
+</div>
+
+</div>
+</section>
+<a href="Carrito.dc.html" style="position: absolute; left: 16px; right: 16px; bottom: 20px; height: 60px; border-radius: 18px; background: #2A211C; color: #FFFFFF; text-decoration: none; display: flex; align-items: center; justify-content: space-between; padding: 0 18px">
+<span style="display: flex; align-items: center; gap: 10px"><span style="width: 28px; height: 28px; border-radius: 50%; background: #C2491F; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700">3</span><span style="font-size: 15px; font-weight: 600">Ver carrito</span></span>
+<span style="font-size: 16px; font-weight: 700">S/ 108.00</span>
+</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

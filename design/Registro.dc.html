@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Crear tienda</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&amp;family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#C2491F}a:hover{color:#9E3A17}
+button,input,select{font-family:inherit}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; position: relative; overflow: hidden; background: #FBF7F2; font-family: 'Figtree', system-ui, sans-serif; color: #2A211C">
+<header style="padding: 18px 20px 0; display: flex; align-items: center; justify-content: space-between">
+<span style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.02em">yokomerce<span style="color: #C2491F">.</span></span>
+<span style="font-size: 13px; color: #6E625A; font-weight: 600">Paso 2 de 3</span>
+</header>
+<div style="display: flex; gap: 6px; padding: 12px 20px 0">
+<span style="flex: 1; height: 4px; border-radius: 2px; background: #C2491F"></span>
+<span style="flex: 1; height: 4px; border-radius: 2px; background: #C2491F"></span>
+<span style="flex: 1; height: 4px; border-radius: 2px; background: #EADFD3"></span>
+</div>
+<div style="padding: 22px 20px 120px; display: flex; flex-direction: column; gap: 18px">
+<div>
+<h1 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 26px; font-weight: 700; letter-spacing: -0.01em">Crea tu tienda</h1>
+<p style="margin: 6px 0 0; font-size: 15px; color: #6E625A">Así te van a ver tus clientes. Puedes cambiarlo después.</p>
+</div>
+<div style="display: flex; align-items: center; gap: 14px">
+<button type="button" style="width: 72px; height: 72px; border-radius: 20px; border: 2px dashed #CBBFB3; background: #FFFFFF; color: #6E625A; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 11px; font-weight: 600">
+<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V6M7 11l5-5 5 5M5 19h14"/></svg>
+Subir logo
+</button>
+<p style="margin: 0; font-size: 13px; color: #6E625A; line-height: 1.45">Una foto de tu logo o de tu producto estrella. La recortamos por ti.</p>
+</div>
+<div>
+<label for="negocio" style="display: block; margin-bottom: 6px; font-size: 13px; font-weight: 600">Nombre del negocio</label>
+<input id="negocio" type="text" value="Dulces de Ana" style="width: 100%; box-sizing: border-box; height: 48px; padding: 0 14px; border-radius: 12px; border: 1px solid #EADFD3; background: #FFFFFF; font-size: 15px; color: #2A211C">
+</div>
+<div>
+<label for="enlace" style="display: block; margin-bottom: 6px; font-size: 13px; font-weight: 600">Link de tu tienda</label>
+<div style="display: flex; align-items: center; height: 48px; border-radius: 12px; border: 2px solid #1F7A4D; background: #FFFFFF; padding: 0 12px; box-sizing: border-box">
+<span style="font-size: 15px; color: #6E625A">yokomerce.pe/</span>
+<input id="enlace" type="text" value="dulcesdeana" style="flex: 1; min-width: 0; border: 0; outline: 0; font-size: 15px; font-weight: 600; color: #2A211C; background: transparent">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1F7A4D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>
+</div>
+<p style="margin: 6px 0 0; font-size: 13px; color: #17603C; font-weight: 600">Disponible</p>
+</div>
+<div>
+<label for="whatsapp" style="display: block; margin-bottom: 6px; font-size: 13px; font-weight: 600">WhatsApp donde recibes pedidos</label>
+<div style="display: flex; gap: 8px">
+<span style="height: 48px; padding: 0 12px; border-radius: 12px; border: 1px solid #EADFD3; background: #FFFFFF; display: flex; align-items: center; font-size: 15px; font-weight: 600; box-sizing: border-box">+51</span>
+<input id="whatsapp" type="tel" value="912 345 678" style="flex: 1; min-width: 0; box-sizing: border-box; height: 48px; padding: 0 14px; border-radius: 12px; border: 1px solid #EADFD3; background: #FFFFFF; font-size: 15px; color: #2A211C">
+</div>
+</div>
+<div>
+<label for="rubro" style="display: block; margin-bottom: 6px; font-size: 13px; font-weight: 600">¿Qué vendes?</label>
+<select id="rubro" style="width: 100%; box-sizing: border-box; height: 48px; padding: 0 12px; border-radius: 12px; border: 1px solid #EADFD3; background: #FFFFFF; font-size: 15px; color: #2A211C">
+<option>Postres y pastelería</option>
+<option>Comida</option>
+<option>Ropa y accesorios</option>
+<option>Otro</option>
+</select>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #EADFD3; border-radius: 16px; padding: 14px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; align-items: center; justify-content: space-between">
+<span style="font-size: 15px; font-weight: 700">Hago delivery</span>
+<button type="button" aria-pressed="true" aria-label="Hago delivery" style="width: 52px; height: 32px; border-radius: 16px; border: 0; background: #1F7A4D; padding: 3px; display: flex; justify-content: flex-end"><span style="width: 26px; height: 26px; border-radius: 50%; background: #FFFFFF"></span></button>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="padding: 6px 10px; border-radius: 999px; background: #FBF7F2; border: 1px solid #EADFD3; font-size: 13px; font-weight: 600">Surco · S/ 8</span>
+<span style="padding: 6px 10px; border-radius: 999px; background: #FBF7F2; border: 1px solid #EADFD3; font-size: 13px; font-weight: 600">Miraflores · S/ 10</span>
+<button type="button" style="min-height: 32px; padding: 0 10px; border-radius: 999px; border: 1px dashed #C2491F; background: transparent; color: #8F3412; font-size: 13px; font-weight: 700">+ Agregar zona</button>
+</div>
+</div>
+</div>
+<div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 14px 16px 22px; background: #FFFFFF; border-top: 1px solid #EADFD3">
+<a href="Pedidos.dc.html" style="height: 56px; border-radius: 16px; background: #C2491F; color: #FFFFFF; text-decoration: none; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700">Continuar: subir productos</a>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
