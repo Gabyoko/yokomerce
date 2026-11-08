@@ -107,7 +107,15 @@ def build_store(session: Session, seed: dict[str, Any], now: datetime) -> None:
 
     # --- Dueño, tienda, plan, zonas y categorías ---
     owner_id, store_id = f"us_{p}", f"st_{p}"
-    session.add(UserModel(id=owner_id, email=f"{s['slug']}@yokomerce.test", name=seed["ownerName"]))
+    # dev|<slug>: el mismo `sub` que usa dev_token.py para entrar como este dueño en desarrollo
+    session.add(
+        UserModel(
+            id=owner_id,
+            auth_subject=f"dev|{s['slug']}",
+            email=f"{s['slug']}@yokomerce.test",
+            name=seed["ownerName"],
+        )
+    )
     session.add(
         StoreModel(
             id=store_id,

@@ -55,5 +55,5 @@ def test_si_un_manejador_falla_no_hay_commit():
     uow.publish(OrderPlaced("or_1"))
     with pytest.raises(RuntimeError):
         uow.commit()
-    uow.rollback()
+    # commit() deshace todo por su cuenta cuando un manejador falla
     assert session.log == ["rollback"]

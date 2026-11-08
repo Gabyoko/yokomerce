@@ -77,3 +77,10 @@ class OutOfStock(Conflict):
 class RateLimited(DomainError):
     status_code = 429
     code = "rate_limited"
+
+
+class ServiceUnavailable(DomainError):
+    """Falla un servicio del que dependemos; el usuario puede reintentar."""
+
+    status_code = 503
+    code = "unavailable"

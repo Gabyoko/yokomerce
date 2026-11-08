@@ -148,10 +148,10 @@ class Order:
         self.status = target
         return previous
 
-    def confirm_payment(self, now: datetime) -> None:
+    def confirm_payment(self, now: datetime, actor: str | None = None) -> None:
         self._move_to(OrderStatus.PAID)
         self.paid_at = now
-        self._record(PaymentConfirmed(self.id, self.store_id, self.number, self.stock_lines))
+        self._record(PaymentConfirmed(self.id, self.store_id, self.number, self.stock_lines, actor))
 
     def start_preparing(self) -> None:
         self._move_to(OrderStatus.PREPARING)
@@ -160,12 +160,14 @@ class Order:
         self._move_to(OrderStatus.DELIVERED)
         self.delivered_at = now
 
-    def cancel(self, now: datetime) -> None:
+    def cancel(self, now: datetime, actor: str | None = None) -> None:
         previous = self._move_to(OrderStatus.CANCELLED)
         self.cancelled_at = now
         # Si estaba nuevo se libera la reserva; si estaba pagado o preparando, el stock vuelve
         self._record(
-            OrderCancelled(self.id, self.store_id, self.number, self.stock_lines, was_paid=previous != OrderStatus.NEW)
+            OrderCancelled(
+                self.id, self.store_id, self.number, self.stock_lines, actor, was_paid=previous != OrderStatus.NEW
+            )
         )
 
     def is_reservation_over(self, now: datetime) -> bool:

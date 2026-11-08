@@ -2,7 +2,7 @@
 
 from datetime import datetime
 
-from sqlalchemy import CheckConstraint, DateTime, ForeignKey, Index, Integer, String, func
+from sqlalchemy import BigInteger, CheckConstraint, DateTime, ForeignKey, Identity, Index, Integer, String, func
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.shared.db import Base
@@ -37,6 +37,8 @@ class StockMovementModel(Base):
     )
 
     id: Mapped[str] = mapped_column(IdColumn, primary_key=True)
+    # Orden en que ocurrieron: varios movimientos pueden tener la misma hora
+    seq: Mapped[int] = mapped_column(BigInteger, Identity(), unique=True)
     store_id: Mapped[str] = mapped_column(ForeignKey("stores.id", ondelete="CASCADE"), index=True)
     variant_id: Mapped[str] = mapped_column(ForeignKey("variants.id", ondelete="CASCADE"))
     # Sin clave foránea: ordering es dueño de los pedidos; aquí solo se guarda la referencia

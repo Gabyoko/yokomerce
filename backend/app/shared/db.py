@@ -1,10 +1,12 @@
 """
 Conexión a PostgreSQL y unidad de trabajo: una transacción por petición.
-Al terminar la petición sin errores se despachan los eventos pendientes y se hace commit;
-si algo falla (incluido un manejador de eventos), se deshace todo.
+El caso de uso llama a `uow.commit()` al terminar: se despachan los eventos pendientes y se guarda.
+Si algo falla (incluido un manejador de eventos), se deshace todo y el error llega a la respuesta.
+Lo que no se confirmó al terminar la petición se descarta.
 """
 
 from collections.abc import Iterator
+from contextlib import contextmanager
 from functools import lru_cache
 
 from sqlalchemy import Engine, MetaData, create_engine, text
@@ -31,7 +33,8 @@ class Base(DeclarativeBase):
 
 @lru_cache
 def get_engine() -> Engine:
-    return create_engine(get_settings().database_url, pool_pre_ping=True)
+    # connect_timeout: si PostgreSQL no responde, falla rápido en vez de dejar la petición colgada
+    return create_engine(get_settings().database_url, pool_pre_ping=True, connect_args={"connect_timeout": 5})
 
 
 @lru_cache
@@ -52,27 +55,35 @@ class UnitOfWork:
 
     def commit(self) -> None:
         # Los manejadores pueden publicar más eventos: se despachan hasta que no quede ninguno
-        while self._pending:
-            self._bus.dispatch(self._pending.pop(0), self)
-        self.session.commit()
+        try:
+            while self._pending:
+                self._bus.dispatch(self._pending.pop(0), self)
+            self.session.commit()
+        except Exception:
+            self.rollback()
+            raise
 
     def rollback(self) -> None:
         self._pending.clear()
         self.session.rollback()
 
 
-def get_uow() -> Iterator[UnitOfWork]:
-    """Dependencia de FastAPI: abre la transacción y la cierra al terminar la petición."""
+@contextmanager
+def unit_of_work() -> Iterator[UnitOfWork]:
+    """Abre una transacción; lo que no se confirmó con `commit()` se descarta al salir."""
     session = _session_factory()()
     uow = UnitOfWork(session)
     try:
         yield uow
-        uow.commit()
-    except Exception:
-        uow.rollback()
-        raise
     finally:
+        uow.rollback()
         session.close()
+
+
+def get_uow() -> Iterator[UnitOfWork]:
+    """Dependencia de FastAPI: una unidad de trabajo por petición."""
+    with unit_of_work() as uow:
+        yield uow
 
 
 def database_is_up() -> bool:

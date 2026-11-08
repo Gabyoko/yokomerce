@@ -11,17 +11,14 @@ def scalar(engine, sql: str, **params):
 
 
 def test_tres_tiendas_con_sus_datos(seeded):
-    rows = {
-        slug: (products, orders)
-        for slug, products, orders in seeded.connect().execute(
-            text(
-                "select s.slug,"
-                " (select count(*) from products p where p.store_id = s.id),"
-                " (select count(*) from orders o where o.store_id = s.id)"
-                " from stores s"
-            )
-        )
-    }
+    query = text(
+        "select s.slug,"
+        " (select count(*) from products p where p.store_id = s.id),"
+        " (select count(*) from orders o where o.store_id = s.id)"
+        " from stores s"
+    )
+    with seeded.connect() as connection:
+        rows = {slug: (products, orders) for slug, products, orders in connection.execute(query)}
     assert rows == {"dulcesdeana": (7, 11), "tallernorte": (6, 9), "fundalab": (7, 8)}
 
 

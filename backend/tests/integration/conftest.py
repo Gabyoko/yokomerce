@@ -16,7 +16,9 @@ from app.shared.db import get_engine
 
 def _ensure_database(url: str) -> None:
     target = make_url(url)
-    admin = create_engine(target.set(database="postgres"), isolation_level="AUTOCOMMIT")
+    admin = create_engine(
+        target.set(database="postgres"), isolation_level="AUTOCOMMIT", connect_args={"connect_timeout": 5}
+    )
     with admin.connect() as connection:
         exists = connection.execute(
             text("select 1 from pg_database where datname = :n"), {"n": target.database}
@@ -43,3 +45,23 @@ def seeded(engine):
 
     seed()
     return engine
+
+
+@pytest.fixture
+def fresh(seeded):
+    """Datos de prueba recién cargados (los pedidos y ajustes cambian el stock)."""
+    from seed import seed
+
+    seed()
+    return seeded
+
+
+@pytest.fixture
+def enforced(monkeypatch):
+    """Planes activos, como cuando termine la beta."""
+    from app.modules.subscriptions import plans
+
+    class Settings:
+        plans_enforced = True
+
+    monkeypatch.setattr(plans, "get_settings", lambda: Settings)

@@ -11,5 +11,7 @@ class UserModel(TimestampMixin, Base):
     __tablename__ = "users"
 
     id: Mapped[str] = mapped_column(IdColumn, primary_key=True)
+    # El `sub` del token de sesión: identifica a la persona (el correo puede cambiar)
+    auth_subject: Mapped[str] = mapped_column(String(255), unique=True)
     email: Mapped[str] = mapped_column(String(254), unique=True)
     name: Mapped[str] = mapped_column(String(60))

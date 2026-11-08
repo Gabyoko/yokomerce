@@ -1,4 +1,5 @@
 import os
+import tempfile
 
 import pytest
 from fastapi.testclient import TestClient
@@ -9,6 +10,13 @@ os.environ["DATABASE_URL"] = os.environ.get(
     "TEST_DATABASE_URL", "postgresql+psycopg://yokomerce:yokomerce@localhost:5432/yokomerce_test"
 )
 os.environ["APP_ENV"] = "test"
+# Sesión de las pruebas: modo desarrollo con un secreto propio, sin importar lo que diga tu .env
+os.environ["AUTH_JWKS_URL"] = ""
+os.environ["AUTH_ISSUER"] = ""
+os.environ["AUTH_DEV_SECRET"] = "secreto-solo-para-las-pruebas-automaticas"
+# Las fotos de las pruebas van a una carpeta temporal, nunca a la de desarrollo
+os.environ["STORAGE_BACKEND"] = "local"
+os.environ["UPLOADS_DIR"] = os.path.join(tempfile.gettempdir(), "yokomerce-pruebas-uploads")
 
 from app.main import check_database, create_app  # noqa: E402
 

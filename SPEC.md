@@ -508,7 +508,15 @@ async function authHeaders(): Promise<Record<string, string>> {
 
 **Sesión en la fase F:** no hay login real. Una cookie `mock_store` guarda qué tienda es "la mía" (por defecto `dulcesdeana`), `apiFetch` la envía en la cabecera `X-Mock-Store` y la API de prueba la usa en los endpoints `/me/*`. En desarrollo, el panel muestra un selector para cambiar entre las tres tiendas de prueba y comprobar que las funciones configurables se comportan bien. Las pantallas de `/ingresar` y `/registro` existen pero solo simulan el flujo.
 
+**Sesión en el backend real (fase B):** el login (link mágico al correo y Google) lo hace **Supabase Auth** desde el front. Los endpoints `/me/*` reciben `Authorization: Bearer <token>` y el back verifica la firma con las claves públicas de Supabase. Respuestas: `401 unauthorized` (sin token o token inválido), `404 no_store` (sesión válida, todavía sin tienda: el front lleva a `/registro`), `409 email_in_use` (ese correo ya es de otra cuenta) y `503 auth_unavailable` (no se pudo revisar la sesión: reintentar sin cerrarla). `POST /me/store` responde `409 store_exists` si el usuario ya tiene tienda (una por dueño).
+
+**Otros conflictos del backend real:** un ajuste de stock que choca con otro cambio simultáneo responde `409 stock_changed`: el panel vuelve a pedir los datos y reintenta. Las reservas vencen con una tarea cada 15 minutos; si el dueño intenta confirmar un pedido cuya reserva ya pasó, ese pedido se vence en ese momento y responde `409 invalid_status`.
+
 **Imágenes en la fase F:** `uploadImage` devuelve una URL de imagen de prueba. Antes de subir, el front comprime la foto (máx. 1200 px, WebP); eso se mantiene en la fase C.
+
+**Imágenes en el backend real:** `POST /me/uploads` acepta solo JPG, PNG o WebP de hasta 5 MB (el tipo se reconoce por el contenido del archivo, no por su nombre) y responde `201 { url }`. Si no, `400 validation` con `fields.file`. Las fotos se guardan en `stores/<id de la tienda>/<nombre al azar>`: en desarrollo, en una carpeta que la API sirve en `/uploads`; en producción, en un bucket público de Supabase Storage (`503 storage_unavailable` si falla).
+
+**Planes en el backend real:** el plan gratis recibe `403 plan_limit` al pasar de 20 productos y `403 plan_required` en el historial de stock; en `/me/stats` recibe en 0 las ventas de la semana, el ticket promedio y la lista de lo más vendido (con candado en el front). Durante la beta (`PLANS_ENFORCED=false`) todos son Pro. El Pro se activa a mano con `backend/set_plan.py`.
 
 **Pruebas en la fase F:** `POST /api/mock/dev/reset` vuelve la API de prueba a los datos iniciales. Solo existe en desarrollo, lo usan las pruebas de Playwright y no es parte del contrato.
 

@@ -24,6 +24,8 @@ class OrderEvent(DomainEvent):
     order_number: int
     # Solo los ítems que controlan stock, agrupados por variante
     lines: tuple[StockLine, ...]
+    # Nombre de quien hizo el cambio; None = automático
+    actor: str | None = None
 
 
 @dataclass(frozen=True)
