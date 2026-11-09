@@ -105,5 +105,6 @@ class Order(PublicOrder):
 
 
 class CreateOrderSuccess(CamelModel):
-    ok: Literal[True] = True
+    # Sin valor por defecto: así el contrato dice que `ok` siempre viene en la respuesta
+    ok: Literal[True]
     order: PublicOrder

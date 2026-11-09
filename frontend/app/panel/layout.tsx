@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 
+import { LogoutButton } from "@/features/auth";
 import { NewOrdersBadge } from "@/features/orders";
 import { MyPlanCard } from "@/features/plans";
 import { MyDevStoreSwitcher, MyStoreCard } from "@/features/store-settings";
@@ -38,9 +39,12 @@ export default function PanelLayout({ children }: LayoutProps<"/panel">) {
         ),
       }}
       sidebarFooter={
-        <Suspense>
-          <MyDevStoreSwitcher />
-        </Suspense>
+        <>
+          <Suspense>
+            <MyDevStoreSwitcher />
+          </Suspense>
+          <LogoutButton />
+        </>
       }
     >
       {children}

@@ -3,6 +3,7 @@
  * Funciona en componentes de servidor y de cliente.
  * Al conectar el backend real (fase C) solo cambian NEXT_PUBLIC_API_URL y authHeaders().
  */
+import { SUPABASE } from "@/shared/lib/supabase/config";
 
 export class ApiError extends Error {
   constructor(
@@ -51,10 +52,15 @@ function readBrowserCookie(name: string): string | undefined {
     ?.slice(name.length + 1);
 }
 
-// Fase F: lee la cookie mock_store y envía { "X-Mock-Store": "<slug>" }.
-//         En el servidor con cookies() de next/headers; en el cliente con document.cookie.
-// Fase C: envía { "Authorization": "Bearer <token>" } de la sesión real.
+// Fase C (Supabase configurado): envía { "Authorization": "Bearer <token>" } de la sesión real.
+// Fase F (sin Supabase): lee la cookie mock_store y envía { "X-Mock-Store": "<slug>" }.
+// En el servidor la sesión sale de las cookies de la petición; en el navegador, del cliente de Supabase.
 async function authHeaders(): Promise<Record<string, string>> {
+  if (SUPABASE) {
+    const token = await sessionToken();
+    return token ? { Authorization: `Bearer ${token}` } : {};
+  }
+
   let store: string | undefined;
   if (typeof window === "undefined") {
     // Import dinámico: next/headers solo existe en el servidor
@@ -64,4 +70,17 @@ async function authHeaders(): Promise<Record<string, string>> {
     store = readBrowserCookie(MOCK_STORE_COOKIE);
   }
   return store ? { "X-Mock-Store": decodeURIComponent(store) } : {};
+}
+
+/**
+ * Token de la sesión de Supabase, o undefined si no hay sesión. El back verifica su firma;
+ * aquí solo se lee. Imports dinámicos: cada lado carga solo su cliente.
+ */
+async function sessionToken(): Promise<string | undefined> {
+  const supabase =
+    typeof window === "undefined"
+      ? await (await import("@/shared/lib/supabase/server")).serverSupabase()
+      : await (await import("@/shared/lib/supabase")).browserSupabase();
+  const { data } = await supabase.auth.getSession();
+  return data.session?.access_token;
 }

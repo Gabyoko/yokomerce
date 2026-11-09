@@ -23,6 +23,8 @@ import {
   type SlugStatus,
   validateRegisterStep,
 } from "../lib/register";
+import { createAccount, currentEmail } from "../api";
+import { AuthFailure, PASSWORD_MIN } from "../lib/auth-errors";
 import { AuthShell } from "./AuthShell";
 
 const SLUG_CHECK_DELAY_MS = 400;
@@ -38,7 +40,10 @@ function focusFirstError() {
 
 let zoneCount = 0;
 
-/** Registro del dueño en 3 pasos (SPEC.md, sección 3). En la fase F crea la tienda en la API de prueba. */
+/**
+ * Registro del dueño en 3 pasos (SPEC.md, sección 3). Al final crea la cuenta (Supabase) y luego la tienda.
+ * Si ya hay sesión (se creó la cuenta pero no la tienda), no vuelve a pedir correo ni contraseña.
+ */
 export function RegisterFlow() {
   const router = useRouter();
   const { toast } = useToast();
@@ -49,9 +54,18 @@ export function RegisterFlow() {
   const [slugStatus, setSlugStatus] = useState<SlugStatus>("idle");
   const [logo, setLogo] = useState<{ file: File; preview: string } | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  /** Correo de la sesión actual: undefined mientras se revisa, null si no hay sesión. */
+  const [sessionEmail, setSessionEmail] = useState<string | null | undefined>(undefined);
+  const needsAccount = sessionEmail === null;
   const slugTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
   const slugRequest = useRef(0);
   const logoInput = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    currentEmail()
+      .then(setSessionEmail)
+      .catch(() => setSessionEmail(null));
+  }, []);
 
   // Libera la vista previa del logo al cambiarla o al salir
   useEffect(() => () => (logo ? URL.revokeObjectURL(logo.preview) : undefined), [logo]);
@@ -88,7 +102,7 @@ export function RegisterFlow() {
 
   function next(event: FormEvent) {
     event.preventDefault();
-    const found = validateRegisterStep(step, draft, slugStatus);
+    const found = validateRegisterStep(step, draft, slugStatus, needsAccount);
     setErrors(found);
     if (Object.keys(found).length > 0) {
       focusFirstError();
@@ -104,6 +118,22 @@ export function RegisterFlow() {
 
   async function submit() {
     setSubmitting(true);
+    if (needsAccount) {
+      try {
+        await createAccount(draft.email, draft.password);
+        setSessionEmail(draft.email.trim());
+      } catch (error) {
+        // Un error inesperado (no de Supabase) queda en la consola para poder revisarlo
+        if (!(error instanceof AuthFailure)) console.error("No se pudo crear la cuenta", error);
+        setSubmitting(false);
+        setStep(1);
+        const message = error instanceof AuthFailure ? error.message : "Revisa tu conexión e inténtalo otra vez.";
+        if (error instanceof AuthFailure && error.code === "weak_password") setErrors({ password: message });
+        else setErrors({ email: message });
+        focusFirstError();
+        return;
+      }
+    }
     try {
       await createStore(createStoreInput(draft));
     } catch (error) {
@@ -166,6 +196,34 @@ export function RegisterFlow() {
               onChange={(e) => set("ownerName", e.target.value)}
               error={errors.ownerName}
             />
+            {needsAccount && (
+              <>
+                <Input
+                  label="Correo"
+                  type="email"
+                  autoComplete="email"
+                  inputMode="email"
+                  placeholder="ana@gmail.com"
+                  value={draft.email}
+                  onChange={(e) => set("email", e.target.value)}
+                  error={errors.email}
+                />
+                <Input
+                  label="Contraseña"
+                  type="password"
+                  autoComplete="new-password"
+                  hint={`Al menos ${PASSWORD_MIN} caracteres.`}
+                  value={draft.password}
+                  onChange={(e) => set("password", e.target.value)}
+                  error={errors.password}
+                />
+              </>
+            )}
+            {sessionEmail && (
+              <p className="rounded-control border border-border bg-surface px-3.5 py-3 text-sm text-ink-muted">
+                Entraste como <span className="font-semibold text-ink">{sessionEmail}</span>. Ahora crea tu tienda.
+              </p>
+            )}
             <p className="text-sm text-ink-muted">
               ¿Ya tienes tienda?{" "}
               <Link href="/ingresar" className="font-semibold text-primary hover:text-primary-hover">

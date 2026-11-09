@@ -68,5 +68,6 @@ No agregues capas de DDD a los módulos simples. Si un módulo simple empieza a 
 - `uv run python seed.py` para borrar todo y cargar las tres tiendas de prueba (lee `seed_data.json`, exportado de `frontend/mocks/data`)
 - `uv run python dev_token.py dulcesdeana` crea un token para probar `/me/*` en `/docs` (botón Authorize), sin cuenta de Supabase; solo desarrollo
 - `uv run python set_plan.py dulcesdeana pro --dias 30` activa el plan Pro de una tienda (el cobro es manual)
+- `uv run python export_openapi.py` guarda el contrato en `openapi.json` (después de cambiar un esquema; el front lo compara con `npm run contract`)
 - `uv run pytest` antes de dar una tarea por terminada (las de integración usan la base `yokomerce_test`)
 - Si `uv` no está en el PATH, usa `python -m uv` en su lugar

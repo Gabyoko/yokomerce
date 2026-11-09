@@ -157,3 +157,14 @@ def test_set_plan_activa_y_quita_el_pro(client, fresh, enforced):
 
     assert run_set_plan("no-existe", "pro").returncode != 0
     assert run_set_plan(DA, "free", "--dias", "3").returncode != 0
+
+
+def test_la_configuracion_no_es_parte_de_la_api(client):
+    """Error real de B6: la configuración aparecía como un dato que el cliente podía mandar al subir fotos."""
+    spec = client.get("/openapi.json").json()
+    assert "Settings" not in spec["components"]["schemas"]
+    text_spec = str(spec).lower()
+    for secret in ("auth_dev_secret", "database_url", "supabase_service_key", "uploads_dir"):
+        assert secret not in text_spec
+    upload = spec["paths"]["/me/uploads"]["post"]
+    assert set(str(upload).split("'")) & {"settings"} == set()

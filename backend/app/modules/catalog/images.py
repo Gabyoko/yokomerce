@@ -17,7 +17,7 @@ from typing import BinaryIO, Protocol
 
 import httpx
 
-from app.config import Settings, get_settings
+from app.config import get_settings
 from app.shared.errors import ServiceUnavailable, ValidationFailed
 
 MAX_BYTES = 5 * 1024 * 1024
@@ -103,8 +103,12 @@ class SupabaseStorage:
         return f"{self.url}/storage/v1/object/public/{self.bucket}/{key}"
 
 
-def get_storage(settings: Settings | None = None) -> ImageStorage:
-    settings = settings or get_settings()
+def get_storage() -> ImageStorage:
+    """
+    Dependencia de FastAPI. No debe recibir parámetros: FastAPI los tomaría como datos de la petición
+    (un cliente podría mandar su propia configuración).
+    """
+    settings = get_settings()
     if settings.storage_backend == "supabase":
         return SupabaseStorage(settings.supabase_url, settings.supabase_service_key, settings.supabase_bucket)  # type: ignore[arg-type]
     return LocalStorage(Path(settings.uploads_dir), settings.public_base_url)

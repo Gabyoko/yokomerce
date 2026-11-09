@@ -5,6 +5,7 @@ import { useTransition } from "react";
 
 import { MOCK_STORE_COOKIE } from "@/shared/api/client";
 import { cn } from "@/shared/lib/cn";
+import { SUPABASE } from "@/shared/lib/supabase";
 
 /** Tiendas de prueba de SPEC.md, sección 6. */
 const TEST_STORES = [
@@ -20,7 +21,8 @@ const TEST_STORES = [
 export function DevStoreSwitcher({ current, className }: { current: string; className?: string }) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
-  if (process.env.NODE_ENV === "production") return null;
+  // Con la sesión real (Supabase) no hay tiendas de prueba que elegir
+  if (process.env.NODE_ENV === "production" || SUPABASE) return null;
 
   const options = TEST_STORES.some((s) => s.slug === current)
     ? TEST_STORES

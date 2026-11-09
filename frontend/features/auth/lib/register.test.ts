@@ -4,6 +4,8 @@ import { createStoreInput, emptyRegisterDraft, type RegisterDraft, registerZones
 
 const filled: RegisterDraft = {
   ownerName: "Ana Torres",
+  email: "ana@gmail.com",
+  password: "una-clave-larga",
   name: "Dulces de Ana",
   slug: "dulces-ana",
   whatsapp: "912 345 678",
@@ -20,6 +22,13 @@ describe("validateRegisterStep", () => {
 
   it("paso 1 pide el nombre", () => {
     expect(validateRegisterStep(1, emptyRegisterDraft(), "idle")).toEqual({ ownerName: "Escribe tu nombre." });
+  });
+
+  it("paso 1 sin sesión también pide correo y contraseña", () => {
+    expect(validateRegisterStep(1, filled, "idle", true)).toEqual({});
+    const errors = validateRegisterStep(1, { ...filled, email: "ana@", password: "corta" }, "idle", true);
+    expect(errors.email).toMatch(/correo válido/);
+    expect(errors.password).toMatch(/8 caracteres/);
   });
 
   it("paso 2: el link debe estar libre", () => {

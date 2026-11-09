@@ -38,7 +38,7 @@ def create_order(
     body: Annotated[Any, Body()] = None,
 ) -> CreateOrderSuccess:
     order = place_order(uow, body)
-    return CreateOrderSuccess(order=to_public_order(order))
+    return CreateOrderSuccess(ok=True, order=to_public_order(order))
 
 
 @router.get("/public/stores/{slug}/orders/{token}", response_model=PublicOrder, summary="Pedido por su link")

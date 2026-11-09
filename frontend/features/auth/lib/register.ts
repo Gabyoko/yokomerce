@@ -3,6 +3,8 @@ import { parseSolesInput } from "@/shared/lib/money";
 import { normalizePeruPhone } from "@/shared/lib/phone";
 import type { CreateStoreInput, ZoneInput } from "@/shared/types";
 
+import { PASSWORD_MIN } from "./auth-errors";
+
 /** Registro en 3 pasos: tu nombre, tu tienda y 4 preguntas (SPEC.md, sección 3). */
 export const REGISTER_STEPS = 3;
 
@@ -10,6 +12,9 @@ export type Answer = boolean | null;
 
 export type RegisterDraft = {
   ownerName: string;
+  /** Cuenta de Supabase. No va a la API de Yokomerce: solo se usa para crear la sesión. */
+  email: string;
+  password: string;
   name: string;
   slug: string;
   whatsapp: string;
@@ -49,6 +54,8 @@ export const QUESTIONS: { key: keyof RegisterDraft["answers"]; question: string;
 
 export const emptyRegisterDraft = (): RegisterDraft => ({
   ownerName: "",
+  email: "",
+  password: "",
   name: "",
   slug: "",
   whatsapp: "",
@@ -58,12 +65,26 @@ export const emptyRegisterDraft = (): RegisterDraft => ({
   answers: { deliveryDate: null, madeToOrder: null, variants: null, shipping: null },
 });
 
-/** Errores del paso actual (1, 2 o 3). Las claves son las de la API cuando existen. */
-export function validateRegisterStep(step: number, draft: RegisterDraft, slugStatus: SlugStatus): RegisterErrors {
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+/**
+ * Errores del paso actual (1, 2 o 3). Las claves son las de la API cuando existen.
+ * needsAccount: no hay sesión todavía, así que el paso 1 también pide correo y contraseña.
+ */
+export function validateRegisterStep(
+  step: number,
+  draft: RegisterDraft,
+  slugStatus: SlugStatus,
+  needsAccount = false,
+): RegisterErrors {
   const errors: RegisterErrors = {};
   if (step === 1) {
     const owner = draft.ownerName.trim();
     if (owner.length < 2 || owner.length > 60) errors.ownerName = "Escribe tu nombre.";
+    if (needsAccount) {
+      if (!EMAIL_PATTERN.test(draft.email.trim())) errors.email = "Escribe un correo válido, por ejemplo ana@gmail.com.";
+      if (draft.password.length < PASSWORD_MIN) errors.password = `Usa al menos ${PASSWORD_MIN} caracteres.`;
+    }
   }
   if (step === 2) {
     const name = draft.name.trim();

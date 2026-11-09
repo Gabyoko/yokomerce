@@ -1,5 +1,5 @@
 """
-Verifica los tokens de sesión. El login (link al correo y Google) lo hace Supabase Auth desde el front;
+Verifica los tokens de sesión. El login (correo y contraseña) lo hace Supabase Auth desde el front;
 este back nunca ve contraseñas: solo comprueba la firma del token con las claves públicas de Supabase.
 
 Hay dos modos, y cada uno acepta un único tipo de firma, para que un token de un modo jamás sirva en el otro:

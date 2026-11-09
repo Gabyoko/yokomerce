@@ -1,56 +1,48 @@
 "use client";
 
-import { MailCheck } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { type FormEvent, useState } from "react";
 
-import { Button, buttonStyles, Input } from "@/shared/ui";
+import { Button, Input } from "@/shared/ui";
 
+import { signIn } from "../api";
+import { AuthFailure, safeNextPath } from "../lib/auth-errors";
 import { AuthShell } from "./AuthShell";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-/**
- * Ingreso del dueño con link mágico al correo.
- * Fase F: solo simula el flujo; la sesión es la cookie de prueba (SPEC.md, sección 5).
- */
-export function LoginForm() {
-  const [email, setEmail] = useState("");
-  const [error, setError] = useState<string>();
-  const [sent, setSent] = useState(false);
+type Errors = { email?: string; password?: string; form?: string };
 
-  function submit(event: FormEvent) {
+/** Ingreso del dueño con correo y contraseña (Supabase Auth). */
+export function LoginForm() {
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState<Errors>({});
+  const [submitting, setSubmitting] = useState(false);
+
+  async function submit(event: FormEvent) {
     event.preventDefault();
-    if (!EMAIL_PATTERN.test(email.trim())) {
-      setError("Escribe un correo válido, por ejemplo ana@gmail.com.");
+    const found: Errors = {};
+    if (!EMAIL_PATTERN.test(email.trim())) found.email = "Escribe un correo válido, por ejemplo ana@gmail.com.";
+    if (!password) found.password = "Escribe tu contraseña.";
+    setErrors(found);
+    if (found.email || found.password) return;
+
+    setSubmitting(true);
+    try {
+      await signIn(email, password);
+    } catch (error) {
+      if (!(error instanceof AuthFailure)) console.error("No se pudo ingresar", error);
+      setSubmitting(false);
+      setErrors({ form: error instanceof AuthFailure ? error.message : "Algo salió mal. Inténtalo otra vez." });
       return;
     }
-    setSent(true);
-  }
-
-  if (sent) {
-    return (
-      <AuthShell>
-        <div className="flex flex-col items-center gap-3 pt-6 text-center">
-          <span className="flex size-18 items-center justify-center rounded-full bg-whatsapp-soft text-whatsapp">
-            <MailCheck aria-hidden size={34} />
-          </span>
-          <h1 className="font-display text-[26px] font-bold tracking-tight">Revisa tu correo</h1>
-          <p className="text-[15px] text-ink-muted">
-            Te enviamos un link a <span className="font-semibold text-ink">{email.trim()}</span> para entrar a tu panel.
-          </p>
-          <p className="rounded-control border border-dashed border-border-strong px-3 py-2 text-[13px] text-ink-muted">
-            Versión de prueba: no se envía ningún correo. Entra directo con el botón.
-          </p>
-          <Link href="/panel/configuracion" className={buttonStyles({ size: "lg", fullWidth: true, className: "mt-3 rounded-[16px]" })}>
-            Entrar a mi panel
-          </Link>
-          <Button variant="ghost" onClick={() => setSent(false)}>
-            Usar otro correo
-          </Button>
-        </div>
-      </AuthShell>
-    );
+    // Se lee al enviar (no con useSearchParams) para no necesitar Suspense en la página
+    const next = safeNextPath(new URLSearchParams(window.location.search).get("next"));
+    router.replace(next);
+    router.refresh();
   }
 
   return (
@@ -58,8 +50,13 @@ export function LoginForm() {
       <form noValidate onSubmit={submit} className="flex flex-col gap-6">
         <div>
           <h1 className="font-display text-[26px] leading-tight font-bold tracking-tight">Ingresa a tu tienda</h1>
-          <p className="mt-1 text-[15px] text-ink-muted">Te enviamos un link a tu correo. Sin contraseñas.</p>
+          <p className="mt-1 text-[15px] text-ink-muted">Con el correo y la contraseña de tu cuenta.</p>
         </div>
+        {errors.form && (
+          <p role="alert" className="rounded-control bg-danger-soft px-3.5 py-3 text-sm font-medium text-danger">
+            {errors.form}
+          </p>
+        )}
         <Input
           label="Correo"
           type="email"
@@ -69,12 +66,23 @@ export function LoginForm() {
           value={email}
           onChange={(e) => {
             setEmail(e.target.value);
-            setError(undefined);
+            setErrors({});
           }}
-          error={error}
+          error={errors.email}
         />
-        <Button type="submit" size="lg" fullWidth className="rounded-[16px]">
-          Enviarme el link
+        <Input
+          label="Contraseña"
+          type="password"
+          autoComplete="current-password"
+          value={password}
+          onChange={(e) => {
+            setPassword(e.target.value);
+            setErrors({});
+          }}
+          error={errors.password}
+        />
+        <Button type="submit" size="lg" fullWidth loading={submitting} className="rounded-[16px]">
+          Ingresar
         </Button>
         <p className="text-center text-sm text-ink-muted">
           ¿Aún no tienes tienda?{" "}

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { LogoutButton } from "@/features/auth";
 import { loadMyStore, loadMyZones, MyDevStoreSwitcher, SettingsForm } from "@/features/store-settings";
 import { pageTitle } from "@/shared/lib/brand";
 
@@ -13,6 +14,8 @@ export default async function SettingsPage({ searchParams }: PageProps<"/panel/c
       <MyDevStoreSwitcher className="mx-auto w-full max-w-3xl lg:hidden" />
       {/* key: al cambiar de tienda de prueba, el formulario empieza de nuevo */}
       <SettingsForm key={store.id} store={store} zones={zones} welcome={bienvenida === "1"} />
+      {/* En computadora está en el menú lateral */}
+      <LogoutButton className="mx-auto w-full max-w-3xl lg:hidden" />
     </div>
   );
 }
